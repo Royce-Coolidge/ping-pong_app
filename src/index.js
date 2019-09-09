@@ -18,8 +18,8 @@ const winner = state => {
     return{
          ...state,
         winner:
-            state.player1 > 20 ? 1 : 
-            state.player2 > 20 ? 2 :
+            state.player1 > 20 && state.player2 <= (state.player1 - 2) ? 1 : 
+            state.player2 > 20 && state.player1 <= (state.player2 - 2) ? 2 :
             0,
     }
 };

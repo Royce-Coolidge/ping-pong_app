@@ -25,8 +25,12 @@ const winner = state => {
 };
 
 const setServer = state => {
-let total = state.player1 + state.player2;
-return { ...state, server: Math.floor(total / 5) % 2, }
+    let total = state.player1 + state.player2;
+    return {
+         ...state, 
+         server:
+         state.player1 > 21 || state.player2 > 21 ? Math.floor(total / 2) % 2 :
+          Math.floor(total / 5) % 2, }
 };
 
 const incrementScore= (state, player) => {

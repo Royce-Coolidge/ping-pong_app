@@ -1,7 +1,10 @@
 import React from "react";
+import Player1 from './Player1';
+import Player2 from './Player2';
 
 let Players = ( {scorePlayer1, handleIncrementPlayer1, scorePlayer2, handleIncrementPlayer2, winner, server} ) => (
-    <div className="row">
+
+<div className="row">
     <div className="col-xs-6">
         <p>Player 1 { server === 0 ? 
         <span className="pull-right label label-success">Serving</span> : null }</p>
@@ -22,6 +25,7 @@ let Players = ( {scorePlayer1, handleIncrementPlayer1, scorePlayer2, handleIncre
         <button onClick={ handleIncrementPlayer2 } className="btn btn-primary">+</button>}
     </div>
 </div>
+
 );
 
 export default Players;

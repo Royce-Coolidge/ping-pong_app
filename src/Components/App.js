@@ -1,9 +1,10 @@
 import React from "react";
 import Header from './Header';
-import Players from './Players';
+import Players from './Players/Players';
 import Message from './Message';
 import Reset from './Reset';
 import Games from './Games';
+
 
 const App = ( {games, scorePlayer1, handleIncrementPlayer1, scorePlayer2, handleIncrementPlayer2, reset, server, winner} ) => (
     <React.Fragment>

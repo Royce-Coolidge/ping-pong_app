@@ -9,28 +9,24 @@ const App = ( {games, scorePlayer1, handleIncrementPlayer1, scorePlayer2, handle
     <React.Fragment>
         <Header />
         <Players
-        scorePlayer1={ scorePlayer1 } 
-        handleIncrementPlayer1={ handleIncrementPlayer1 }
-        scorePlayer2 ={ scorePlayer2 }
-        handleIncrementPlayer2 ={ handleIncrementPlayer2 }
-        reset ={ reset }
-        server ={ server }
-        winner ={ winner }
+            scorePlayer1={ scorePlayer1 } 
+            handleIncrementPlayer1={ handleIncrementPlayer1 }
+            scorePlayer2 ={ scorePlayer2 }
+            handleIncrementPlayer2 ={ handleIncrementPlayer2 }
+            reset ={ reset }
+            server ={ server }
+            winner ={ winner }
         />
-        
         <Message 
-        winner ={ winner }
+            winner ={ winner }
         />
-        
         <Reset 
-        reset ={ reset }
-        winner ={ winner }
+            reset ={ reset }
+            winner ={ winner }
         />
-
         <Games 
-        games={ games }
+            games={ games }
         />
-        
     </React.Fragment>
 );
 

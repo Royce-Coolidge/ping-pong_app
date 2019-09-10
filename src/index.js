@@ -11,7 +11,33 @@ const initial = {
     player2: 0,
     server: 0,
     winner: 0,
+    games: [],
 };
+
+
+const logGames = state => {
+    let player1 = state.player1;
+    let player2 = state.player2;
+    let games = state.games;
+    
+    if (state.winner === 0 ) {
+        return state;
+    } else {
+        return {
+            games: [...games, {
+                    player_1: { 
+                        score : player1,
+                        won :  player1 > player2,  
+                    },
+                    player_2: { 
+                        score : player2,
+                        won : player2 > player1,
+                    }
+                }]  
+            } 
+        }
+};
+
 
 
 const winner = state => {
@@ -42,7 +68,7 @@ const incrementScore= (state, player) => {
 const reducer = (state, action) => {
    switch (action.type) {
     // using object spread to create a new object
-     case "incrementScore": return winner(setServer(incrementScore(state, action.player))) 
+     case "incrementScore": return logGames(winner(setServer(incrementScore(state, action.player)))) 
      case "reset": return initial;
      default: return state;
     } 
@@ -63,6 +89,7 @@ let render = () => {
     scorePlayer2 ={ state.player2 }
     server ={ state.server }
     winner ={ state.winner }
+    games={ state.games }
     handleIncrementPlayer1 = { () => store.dispatch({ type: "incrementScore", player: "player1" })}
     handleIncrementPlayer2 = { () => store.dispatch({ type: "incrementScore", player: "player2" })}
     reset ={() => store.dispatch({ type: "reset" }) }

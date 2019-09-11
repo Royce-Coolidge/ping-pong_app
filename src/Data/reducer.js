@@ -1,5 +1,25 @@
 import initial from'./initial';
 
+const incrementScore= (state, player) => {
+    return { ...state, [player]: state[player] + 1, }
+}
+
+const setServer = state => {
+    let total = state.player1 + state.player2;
+    let alternate = minScore(state) ? 2 : 5
+    return {
+         ...state, 
+         server:Math.floor(total / alternate) % 2 }
+};
+
+let minDiff = state => Math.abs(state.player1 - state.player2) >= 2;
+let minScore = state =>state.player1 >=21 || state.player2 >=21;
+let getWinner = state =>state.player1 > state.player2 ? 1 : 2;
+
+const winner = state => ({
+         ...state,
+        winner: minDiff(state) && minScore(state) ? getWinner(state) : 0 });
+
 const logGames = state => {
     let player1 = state.player1;
     let player2 = state.player2;
@@ -24,32 +44,6 @@ const logGames = state => {
         }
 };
 
-
-
-const winner = state => {
-    return{
-         ...state,
-        winner:
-            state.player1 > 20 && state.player2 <= (state.player1 - 2) ? 1 : 
-            state.player2 > 20 && state.player1 <= (state.player2 - 2) ? 2 :
-            0,
-    }
-};
-
-const setServer = state => {
-    let total = state.player1 + state.player2;
-    return {
-         ...state, 
-         server:
-         state.player1 > 20 && state.player2 > 20 ? 
-            Math.floor(total / 2) % 2 :
-            Math.floor(total / 5) % 2, 
-        }
-};
-
-const incrementScore= (state, player) => {
-    return { ...state, [player]: state[player] + 1, }
-}
 
 const reducer = (state, action) => {
    switch (action.type) {

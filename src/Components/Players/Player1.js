@@ -1,5 +1,6 @@
 import { connect } from "react-redux"; // this allows us to interact with the store
 import Player from "./Player";
+import { incrementPlayer1 } from "../../Data/actions";
 
 // mapStateToProps: maps the current state (from the store)
 // to the props that get passed into the wrapped component
@@ -14,9 +15,9 @@ let mapStateToProps = (state) => {
     }
 };
 
-let mapDispatchtoProps = (dispatch) => {
+let mapDispatchToProps = (dispatch) => {
     return {
-        handleIncrement= { handleIncrementPlayer1 }
+        handleIncrement: () => dispatch(incrementPlayer1())
     }
 };
 

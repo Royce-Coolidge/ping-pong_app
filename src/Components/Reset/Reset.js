@@ -1,10 +1,10 @@
 
 import React from 'react';
 
-let Reset = ( {reset} ) => (
+let Reset = ( {handleReset} ) => (
     <>
         <hr />
-        <button onClick={ reset } className="btn btn-danger">Reset</button>
+        <button onClick={ handleReset } className="btn btn-danger">Reset</button>
     </>
 
 )

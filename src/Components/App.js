@@ -5,19 +5,20 @@ import Player2 from './Players/Player2';
 import Message from './Message/';
 import Reset from './Reset/';
 import Games from './Games/';
+import Settings from './Settings/'
 
 
-const App = ( {handleIncrementPlayer1,  handleIncrementPlayer2, handleReset} ) => (
+const App = () => (
     <React.Fragment>
         <Header />
+        <Settings />
 
         <div className="row">
-            <Player1 handleIncrement= { handleIncrementPlayer1 }/>
-            <Player2 handleIncrement= { handleIncrementPlayer2 }/>
+            <Player1 />
+            <Player2 />
         </div>
-
         <Message />
-        <Reset reset ={ handleReset }/>
+        <Reset/>
         <Games />
     </React.Fragment>
 );

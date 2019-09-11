@@ -10,11 +10,7 @@ import { Provider } from "react-redux";
 
 ReactDOM.render( // completely recontructs the app component
     <Provider store={ store }>
-        <App
-            handleIncrementPlayer1 = { () => store.dispatch({ type: "incrementScore", player: "player1" })}
-            handleIncrementPlayer2 = { () => store.dispatch({ type: "incrementScore", player: "player2" })}
-            handleReset ={() => store.dispatch({ type: "reset" }) }
-        />
+        <App />
     </Provider>, 
     document.getElementById('root') // attaches it all to the index.html
 );

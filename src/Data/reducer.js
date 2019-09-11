@@ -44,12 +44,20 @@ const logGames = state => {
         }
 };
 
+const save = (state, { player1Name, player2Name, winningScore, alternate }) => 
+        ({ ...state,
+            player1Name: player1Name,
+            player2Name: player2Name,
+            winningScore: +winningScore,
+            alternate: +alternate,
+        });
 
 const reducer = (state, action) => {
    switch (action.type) {
     // using object spread to create a new object
      case "incrementScore": return logGames(winner(setServer(incrementScore(state, action.player)))) 
      case "reset": return {...initial, games: state.games};
+     case "save": return save(state, action)
      default: return state;
     } 
 };

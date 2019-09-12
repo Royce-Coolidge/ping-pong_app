@@ -1,6 +1,6 @@
 import { connect } from "react-redux"; // this allows us to interact with the store
 import Player from "./Player";
-import { incrementPlayer1 } from "../../Data/actions";
+import { incrementPlayer1 } from "../../Data/actions/actions";
 
 // mapStateToProps: maps the current state (from the store)
 // to the props that get passed into the wrapped component

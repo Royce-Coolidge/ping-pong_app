@@ -1,7 +1,7 @@
 import reducer from "./reducer";
 import initial from "./initial";
-import { createStore, compose } from "redux";
-import persistState from "redux-localstorage";
+import { createStore, applyMiddleware, compose } from "redux";
+import thunk from "redux-thunk";
 
 
 const composeEnhancers =
@@ -10,7 +10,7 @@ window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
     reducer,
     initial,
-    composeEnhancers(persistState())
+    composeEnhancers(applyMiddleware(thunk))
 );
 
 export default store;

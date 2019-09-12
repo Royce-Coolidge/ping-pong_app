@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Settings from "./Settings";
-import { save } from "../../Data/actions"
+import { postNewGame } from "../../Data/actions/api"
 
 const mapStateToProps = state => {
   return {
@@ -12,7 +12,7 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = dispatch => {
     return {
-      handleSave: value => dispatch(save(value)),
+      handleSave: value => dispatch(postNewGame(value)),
   }; 
 };
 

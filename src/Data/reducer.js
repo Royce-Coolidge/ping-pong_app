@@ -43,8 +43,9 @@ const logGames = state => {
         }
 };
 
-const save = (state, { player1Name, player2Name, winningScore, alternate }) => 
+const save = (state, { id, player1Name, player2Name, winningScore, alternate }) => 
         ({ ...state,
+            id: id,
             player1Name: player1Name,
             player2Name: player2Name,
             winningScore: +winningScore,

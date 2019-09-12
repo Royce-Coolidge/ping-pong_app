@@ -10,6 +10,7 @@ const initial = {
     winningScore: 21,
     alternate: 5,
     settings: false,
+    id: 0,
 };
 
 export default initial;

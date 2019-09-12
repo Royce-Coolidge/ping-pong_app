@@ -1,6 +1,6 @@
 import { connect } from "react-redux"; // this allows us to interact with the store
 import Reset from "./Reset";
-import { reset } from "../../Data/actions";
+import { reset } from "../../Data/actions/actions";
 
 // mapStateToProps: maps the current state (from the store)
 // to the props that get passed into the wrapped component

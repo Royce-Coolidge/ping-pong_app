@@ -1,6 +1,6 @@
 import { connect } from "react-redux"; // this wrapper allows us to interact with the store
 import Player from "./Player"; // component we want to wrap
-import { incrementPlayer2 } from "../../Data/actions";
+import { incrementPlayer2 } from "../../Data/actions/actions";
 
 let mapStateToProps = state => {
     return {

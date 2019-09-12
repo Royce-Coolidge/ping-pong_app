@@ -7,20 +7,23 @@ export const reset = () => {
 };
   
 export const incrementPlayer1 = () => {
-    return {type: "incrementScore", player: "player1",}
+    return {
+    type: "incrementScore", 
+    player: "player1",}
 };
 
 export const incrementPlayer2 = () => {
     return {type: "incrementScore", player: "player2",}
 };
 
-export const save = ({player1Name, player2Name, winningScore, alternate}) => {
+export const save = ({id, player_1, player_2, winning_score, change_serve}) => {
     return {
       type: "save",
-      player1Name: player1Name,
-      player2Name: player2Name,
-      winningScore: +winningScore,
-      alternate: +alternate,
+      id: id,
+      player1Name: player_1.name,
+      player2Name: player_2.name,
+      winningScore: +winning_score,
+      alternate: +change_serve,
     };
  };
 

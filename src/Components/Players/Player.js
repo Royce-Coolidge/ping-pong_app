@@ -11,4 +11,4 @@ let Player = ( {playerName, score, handleIncrement, winner, server} ) => (
     </div>
 );
 
-export default Player;
+export default Player; 

@@ -1,5 +1,6 @@
 import axios from "../../axios";
 import { save } from './actions'
+import { incrementScore } from './actions'
 
 export const postNewGame = ( { player1Name, player2Name, winningScore, alternate} ) => {
 	return (dispatch) => {
@@ -10,25 +11,20 @@ export const postNewGame = ( { player1Name, player2Name, winningScore, alternate
             change_serve: alternate,
         }).then(({ data }) => { 
 			// returns a promise, need to use then method
-            console.log(data)
             dispatch(save(data.data))
 			// now need to write a state action
 		})   
 	}
 }
 
-export const patchScore = ( { player1Name, player2Name, winningScore, alternate} ) => {
-	return (dispatch) => {
-		axios.post("/:id/scare", {
-            player_1: player1Name,
-            player_2: player2Name,
-            winning_score: winningScore,
-            change_serve: alternate,
+export const patchScore = player => (dispatch, getState) => {
+		axios.patch(`${ getState().id }/score`, {
+            player: player,
+            
         }).then(({ data }) => { 
 			// returns a promise, need to use then method
-            console.log(data)
-            dispatch(save(data.data))
-			// now need to write a state action
-		})   
-	}
+            console.log(player)
+            dispatch(incrementScore(player))
+			
+	    })   
 }

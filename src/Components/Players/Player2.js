@@ -1,6 +1,6 @@
 import { connect } from "react-redux"; // this wrapper allows us to interact with the store
 import Player from "./Player"; // component we want to wrap
-import { incrementPlayer2 } from "../../Data/actions/actions";
+import { patchScore } from "../../Data/actions/api";
 
 let mapStateToProps = state => {
     return {
@@ -13,7 +13,7 @@ let mapStateToProps = state => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        handleIncrement: () => dispatch(incrementPlayer2())
+        handleIncrement: () => dispatch(patchScore(2))
     }
 };
 

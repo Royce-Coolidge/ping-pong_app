@@ -1,6 +1,6 @@
 import { connect } from "react-redux"; // this allows us to interact with the store
 import Player from "./Player";
-import { incrementPlayer1 } from "../../Data/actions/actions";
+import { patchScore } from "../../Data/actions/api";
 
 // mapStateToProps: maps the current state (from the store)
 // to the props that get passed into the wrapped component
@@ -17,8 +17,8 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        handleIncrement: () => dispatch(incrementPlayer1())
+        handleIncrement: () => dispatch(patchScore(1))
     }
 };
-
+ 
 export default connect(mapStateToProps, mapDispatchToProps)(Player);

@@ -6,15 +6,14 @@ export const reset = () => {
     }
 };
   
-export const incrementPlayer1 = () => {
+export const incrementScore = ( player ) => {
     return {
     type: "incrementScore", 
-    player: "player1",}
+    player: "player"+player ,
+   
+  }
 };
 
-export const incrementPlayer2 = () => {
-    return {type: "incrementScore", player: "player2",}
-};
 
 export const save = ({id, player_1, player_2, winning_score, change_serve}) => {
     return {

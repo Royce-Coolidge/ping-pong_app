@@ -8,7 +8,7 @@ import { incrementPlayer1 } from "../../Data/actions";
 // to any other props being passed in
 let mapStateToProps = (state) => {
     return {
-        player: 1,
+        playerName: state.player1Name, 
         score: state.player1,
         winner: state.winner,
         server: state.server === 0,   

@@ -6,14 +6,14 @@ const incrementScore= (state, player) => {
 
 const setServer = state => {
     let total = state.player1 + state.player2;
-    let alternate = minScore(state) ? 2 : 5
+    let alternate = minScore(state) ? 2 : state.alternate
     return {
          ...state, 
          server:Math.floor(total / alternate) % 2 }
 };
 
 let minDiff = state => Math.abs(state.player1 - state.player2) >= 2;
-let minScore = state =>state.player1 >=21 || state.player2 >=21;
+let minScore = state =>state.player1 >=state.winningScore || state.player2 >=state.winningScore;
 let getWinner = state =>state.player1 > state.player2 ? 1 : 2;
 
 const winner = state => ({
@@ -21,10 +21,7 @@ const winner = state => ({
         winner: minDiff(state) && minScore(state) ? getWinner(state) : 0 });
 
 const logGames = state => {
-    let player1 = state.player1;
-    let player2 = state.player2;
     let games = state.games;
-    
     if (state.winner === 0 ) {
         return state;
     } else {
@@ -32,12 +29,14 @@ const logGames = state => {
             ...state,
             games: [...games, {
                     player_1: { 
-                        score : player1,
-                        won :  player1 > player2,  
+                        name: state.player1Name,
+                        score : state.player1,
+                        won :  state.player1 > state.player2,  
                     },
-                    player_2: { 
-                        score : player2,
-                        won : player2 > player1,
+                    player_2: {
+                        name: state.player2Name, 
+                        score : state.player2,
+                        won : state.player2 > state.player1,
                     }
                 }]  
             } 
@@ -50,6 +49,7 @@ const save = (state, { player1Name, player2Name, winningScore, alternate }) =>
             player2Name: player2Name,
             winningScore: +winningScore,
             alternate: +alternate,
+            settings: true,
         });
 
 const reducer = (state, action) => {

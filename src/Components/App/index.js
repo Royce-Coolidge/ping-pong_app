@@ -1,5 +1,5 @@
 import { connect } from "react-redux"; // this allows us to interact with the store
-import Games from "./Games";
+import App from "./App";
 
 // mapStateToProps: maps the current state (from the store)
 // to the props that get passed into the wrapped component
@@ -7,9 +7,9 @@ import Games from "./Games";
 // to any other props being passed in
 let mapStateToProps = (state) => {
     return {
-        games: state.games,
-    
+        settings: state.settings,
+        
     }
 };
 
-export default connect(mapStateToProps)(Games);
+export default connect(mapStateToProps)(App);

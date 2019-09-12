@@ -4,10 +4,10 @@ import { incrementPlayer2 } from "../../Data/actions";
 
 let mapStateToProps = state => {
     return {
-        player: 2,
+        playerName: state.player2Name, 
         score: state.player2,
         winner: state.winner,
-        server: state.server !== 0,  
+        server: state.server !== 0,   
     }
 };
 

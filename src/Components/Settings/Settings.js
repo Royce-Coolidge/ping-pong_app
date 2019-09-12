@@ -10,6 +10,7 @@ class Settings extends Component {
         winningScore: props.winningScore,
         alternate: props.alternate,
     }
+    
     this.handlePlayer1NameChange = this.handlePlayer1NameChange.bind(this);
     this.handlePlayer2NameChange = this.handlePlayer2NameChange.bind(this);
     this.handleWinScoreChange = this.handleWinScoreChange.bind(this);

@@ -1,11 +1,13 @@
 
 import React from 'react'
 
-let Message = ( {winner} ) => (
 
-  winner !== 0 ?
-    <h2 className="jumbotron">Player { winner } wins!</h2> : null
-    
-)
+let Message = ( {winner, player} ) => (
+
+  winner === 0 ? null :
+      <h2 className="jumbotron">{ player } wins!</h2> 
+
+      )
+
 
 export default Message;

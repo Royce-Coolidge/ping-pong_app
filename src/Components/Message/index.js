@@ -8,6 +8,8 @@ import Message from "./Message";
 let mapStateToProps = (state) => {
     return {
         winner: state.winner,
+        player: state.winner === 1 ? state.player1Name : state.player2Name,
+        
     }
 };
 

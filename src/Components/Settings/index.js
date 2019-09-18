@@ -12,7 +12,7 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = dispatch => {
     return {
-      handleSave: value => dispatch(postNewGame(value)),
+      handleSave: value => {dispatch(postNewGame(value))},
   }; 
 };
 

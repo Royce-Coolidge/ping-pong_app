@@ -12,3 +12,4 @@ const App = ( {settings} ) => (
 );
 
 export default App;
+ 

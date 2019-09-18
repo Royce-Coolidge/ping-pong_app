@@ -13,7 +13,8 @@ export const postNewGame = ( { player1Name, player2Name, winningScore, alternate
 			// returns a promise, need to use then method
             dispatch(save(data.data))
 			// now need to write a state action
-		})   
+        })   
+
 	}
 }
 

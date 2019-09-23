@@ -14,7 +14,6 @@ export const incrementScore = ( player ) => {
   }
 };
 
-
 export const save = ({id, player_1, player_2, winning_score, change_serve}) => {
     return {
       type: "save",
